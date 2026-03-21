@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>자격증 맛집 | 4기 모집 중 🍽️</title>
+  <meta name="description" content="꾸준함을 시스템으로 만드는 대학생 자격증 스터디 동아리, 자격증 맛집 4기 모집 중입니다. 컴활, 토익, 오픽, 기사 자격증 함께 준비해요!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">🍽️</span>
+        <span class="logo-text">자격증 <strong>맛집</strong></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active" data-section="home">홈</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">소개</a></li>
+        <li><a href="#qna" class="nav-link" data-section="qna">메뉴판 Q&amp;A</a></li>
+        <li><a href="#exam" class="nav-link" data-section="exam">모의고사</a></li>
+        <li><a href="#career" class="nav-link" data-section="career">진로 추천</a></li>
+        <li><a href="#apply" class="nav-cta">4기 지원하기</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#home" onclick="closeMobile()">홈</a></li>
+      <li><a href="#about" onclick="closeMobile()">소개</a></li>
+      <li><a href="#qna" onclick="closeMobile()">메뉴판 Q&amp;A</a></li>
+      <li><a href="#exam" onclick="closeMobile()">모의고사</a></li>
+      <li><a href="#career" onclick="closeMobile()">진로 추천</a></li>
+      <li><a href="#apply" onclick="closeMobile()" class="mobile-cta">4기 지원하기</a></li>
+    </ul>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">🔥 4기 모집 중</div>
+      <h1 class="hero-title">
+        시험 합격의 <br />
+        <span class="gradient-text">맛</span>을 보여드립니다
+      </h1>
+      <p class="hero-sub">
+        의지 말고 <strong>시스템</strong>으로 — 함께하면 달라집니다<br />
+        서울권 대학생 00~07년생 모집 중
+      </p>
+      <div class="hero-tags">
+        <span class="tag">컴활</span>
+        <span class="tag">토익</span>
+        <span class="tag">오픽</span>
+        <span class="tag">기사 자격증</span>
+        <span class="tag">전공 스터디</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#apply" class="btn-primary" id="hero-apply-btn">4기 지원하기 →</a>
+        <a href="#about" class="btn-ghost">더 알아보기</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card floating">
+        <div class="card-icon">📋</div>
+        <div class="card-info">
+          <span class="card-label">이번 주 목표</span>
+          <span class="card-value">토익 RC 100문제</span>
+        </div>
+        <div class="card-check">✅</div>
+      </div>
+      <div class="hero-card floating delay1">
+        <div class="card-icon">🏆</div>
+        <div class="card-info">
+          <span class="card-label">합격 알림</span>
+          <span class="card-value">김민지님 컴활 1급 합격!</span>
+        </div>
+        <div class="card-badge new">NEW</div>
+      </div>
+      <div class="hero-card floating delay2">
+        <div class="card-icon">⏱️</div>
+        <div class="card-info">
+          <span class="card-label">오늘 공부 시간</span>
+          <span class="card-value">4시간 32분</span>
+        </div>
+        <div class="card-bar"><div class="bar-fill" style="width:75%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats-section">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num" data-target="127">0</span>
+        <span class="stat-label">누적 동아리원</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="89">0</span>
+        <span class="stat-label">자격증 합격자</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="342">0</span>
+        <span class="stat-label">해결된 Q&amp;A</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="96">0</span>
+        <span class="stat-label">만족도 (%)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about-section" id="about">
+    <div class="section-header">
+      <span class="section-badge">우리 동아리</span>
+      <h2>자격증 맛집이 <span class="gradient-text">특별한 이유</span></h2>
+      <p>혼자 하면 3일 컷. 하지만 우리는 시스템으로 끌고 갑니다.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card" data-aos>
+        <div class="about-icon">🎯</div>
+        <h3>주 1회 대면 스터디</h3>
+        <p>스터디룸 또는 카페에서 4~5명이 함께 공부합니다. 얼굴 보면서 하면 확실히 달라요.</p>
+      </div>
+      <div class="about-card" data-aos>
+        <div class="about-icon">📊</div>
+        <h3>목표 체크 시스템</h3>
+        <p>매주 목표를 설정하고 진행사항을 체크합니다. 열품타 / 줌 인증으로 루틴을 유지해요.</p>
+      </div>
+      <div class="about-card" data-aos>
+        <div class="about-icon">⚡</div>
+        <h3>번개 스터디</h3>
+        <p>시험기간 카공 상시 진행. 긴급하게 모여서 집중하는 번개 스터디로 마지막 스퍼트!</p>
+      </div>
+      <div class="about-card" data-aos>
+        <div class="about-icon">💡</div>
+        <h3>꿀팁 공유</h3>
+        <p>먼저 딴 선배들의 합격 노하우, 자료, 암기법을 아끼지 않고 공유합니다.</p>
+      </div>
+    </div>
+
+    <div class="groups-section">
+      <h3 class="groups-title">📚 우리 이렇게 나눠서 합니다</h3>
+      <div class="groups-grid">
+        <div class="group-chip">💻 컴활 &amp; IT 자격증반</div>
+        <div class="group-chip">🌍 토익 / 오픽 / 어학 준비반</div>
+        <div class="group-chip">📐 기사 &amp; 전공 자격증반</div>
+        <div class="group-chip">📖 시험기간 전공 집중 스터디</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Q&A SECTION ============ -->
+  <section class="qna-section" id="qna">
+    <div class="section-header">
+      <span class="section-badge">메뉴판 Q&amp;A</span>
+      <h2>모르는 거 <span class="gradient-text">바로 주문하세요</span></h2>
+      <p>과목별 게시판에 질문을 올리면 먼저 딴 선배가 답해줍니다</p>
+    </div>
+
+    <div class="qna-wrapper">
+      <!-- Category Tabs -->
+      <div class="qna-tabs" id="qnaTabs">
+        <button class="qna-tab active" data-cat="all" onclick="filterQnA('all')">전체</button>
+        <button class="qna-tab" data-cat="컴활" onclick="filterQnA('컴활')">💻 컴활</button>
+        <button class="qna-tab" data-cat="토익" onclick="filterQnA('토익')">🌍 토익</button>
+        <button class="qna-tab" data-cat="오픽" onclick="filterQnA('오픽')">🎙️ 오픽</button>
+        <button class="qna-tab" data-cat="기사" onclick="filterQnA('기사')">📐 기사</button>
+        <button class="qna-tab" data-cat="전공" onclick="filterQnA('전공')">📖 전공</button>
+      </div>
+
+      <!-- Q&A Form -->
+      <div class="qna-form-card">
+        <h3>✏️ 질문 올리기</h3>
+        <div class="form-row">
+          <select id="qnaCategory" class="form-select">
+            <option value="">카테고리 선택</option>
+            <option value="컴활">💻 컴활</option>
+            <option value="토익">🌍 토익</option>
+            <option value="오픽">🎙️ 오픽</option>
+            <option value="기사">📐 기사</option>
+            <option value="전공">📖 전공</option>
+          </select>
+          <input type="text" id="qnaTitle" class="form-input" placeholder="질문 제목을 입력하세요" />
+        </div>
+        <textarea id="qnaContent" class="form-textarea" placeholder="모르는 개념이나 문제를 자세히 설명해주세요. 사진 첨부도 가능합니다!"></textarea>
+        <div class="form-actions">
+          <label class="file-label" for="qnaFile">
+            📎 파일 첨부
+            <input type="file" id="qnaFile" accept="image/*" hidden onchange="handleFileSelect(this)" />
+          </label>
+          <span id="fileName" class="file-name"></span>
+          <button class="btn-primary" onclick="submitQnA()" id="qna-submit-btn">질문 등록</button>
+        </div>
+      </div>
+
+      <!-- Q&A List -->
+      <div class="qna-list" id="qnaList">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXAM SECTION ============ -->
+  <section class="exam-section" id="exam">
+    <div class="section-header">
+      <span class="section-badge">자체 모의고사</span>
+      <h2>실전처럼 <span class="gradient-text">긴장감 있게</span></h2>
+      <p>타이머 + 실시간 순위로 진짜 시험 분위기를 만들어드립니다</p>
+    </div>
+
+    <div class="exam-wrapper">
+      <!-- Exam Lobby -->
+      <div class="exam-lobby" id="examLobby">
+        <div class="exam-categories">
+          <h3>시험 종류 선택</h3>
+          <div class="exam-cat-grid">
+            <button class="exam-cat-btn active" data-exam="컴활" id="exam-btn-컴활" onclick="selectExam('컴활')">
+              <span class="exam-cat-icon">💻</span>
+              <span class="exam-cat-name">컴활 1급</span>
+              <span class="exam-cat-count">20문제</span>
+            </button>
+            <button class="exam-cat-btn" data-exam="토익" id="exam-btn-토익" onclick="selectExam('토익')">
+              <span class="exam-cat-icon">🌍</span>
+              <span class="exam-cat-name">토익 LC</span>
+              <span class="exam-cat-count">10문제</span>
+            </button>
+            <button class="exam-cat-btn" data-exam="오픽" id="exam-btn-오픽" onclick="selectExam('오픽')">
+              <span class="exam-cat-icon">🎙️</span>
+              <span class="exam-cat-name">오픽 준비</span>
+              <span class="exam-cat-count">8문제</span>
+            </button>
+            <button class="exam-cat-btn" data-exam="기사" id="exam-btn-기사" onclick="selectExam('기사')">
+              <span class="exam-cat-icon">📐</span>
+              <span class="exam-cat-name">정보처리기사</span>
+              <span class="exam-cat-count">15문제</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="exam-leaderboard">
+          <h3>🏆 이주의 랭킹</h3>
+          <div class="leaderboard-list" id="leaderboard">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Exam Screen -->
+      <div class="exam-screen hidden" id="examScreen">
+        <div class="exam-header-bar">
+          <div class="exam-info">
+            <span id="examTitle" class="exam-title-label">컴활 1급 모의고사</span>
+            <span id="questionCounter" class="q-counter">1 / 20</span>
+          </div>
+          <div class="exam-timer" id="examTimer">25:00</div>
+          <button class="btn-ghost small" onclick="endExam()">종료</button>
+        </div>
+        <div class="exam-progress-bar">
+          <div class="exam-progress-fill" id="examProgress"></div>
+        </div>
+        <div class="question-card" id="questionCard">
+          <div class="q-number" id="qNumber">Q1</div>
+          <p class="q-text" id="qText"></p>
+          <div class="q-options" id="qOptions"></div>
+        </div>
+        <div class="exam-nav">
+          <button class="btn-ghost" onclick="prevQuestion()" id="prevBtn">← 이전</button>
+          <button class="btn-primary" onclick="nextQuestion()" id="nextBtn">다음 →</button>
+        </div>
+      </div>
+
+      <!-- Result Screen -->
+      <div class="result-screen hidden" id="resultScreen">
+        <div class="result-inner">
+          <div class="result-emoji" id="resultEmoji">🎉</div>
+          <h3 id="resultTitle">수고하셨습니다!</h3>
+          <div class="result-score">
+            <span id="resultScore" class="score-big">0</span>
+            <span class="score-total">/ <span id="resultTotal">0</span></span>
+          </div>
+          <p id="resultMsg" class="result-msg"></p>
+          <div class="result-breakdown" id="resultBreakdown"></div>
+          <div class="result-actions">
+            <button class="btn-ghost" onclick="reviewAnswers()" id="review-btn">오답 확인</button>
+            <button class="btn-primary" onclick="retakeExam()" id="retake-btn">다시 풀기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAREER SECTION ============ -->
+  <section class="career-section" id="career">
+    <div class="section-header">
+      <span class="section-badge">진로 추천 알고리즘</span>
+      <h2>내 자격증으로 <span class="gradient-text">어디 갈 수 있을까?</span></h2>
+      <p>보유한 자격증을 입력하면 맞춤 직무와 기업을 추천해드립니다</p>
+    </div>
+
+    <div class="career-wrapper">
+      <div class="career-input-panel">
+        <h3>📋 내 자격증 입력</h3>
+        <div class="cert-grid" id="certGrid">
+          <!-- Populated by JS -->
+        </div>
+        <div class="custom-cert-row">
+          <input type="text" id="customCert" class="form-input" placeholder="기타 자격증 직접 입력..." />
+          <button class="btn-ghost small" onclick="addCustomCert()" id="add-cert-btn">추가</button>
+        </div>
+        <div class="selected-certs" id="selectedCerts">
+          <p class="no-selected">자격증을 선택하면 여기에 표시됩니다</p>
+        </div>
+        <button class="btn-primary full-width" onclick="analyzeCareer()" id="analyze-btn">
+          🔍 진로 분석하기
+        </button>
+      </div>
+
+      <div class="career-result-panel" id="careerResult">
+        <div class="career-placeholder">
+          <div class="placeholder-icon">🗺️</div>
+          <p>왼쪽에서 자격증을 선택하고<br />진로 분석을 시작해보세요!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPLY SECTION ============ -->
+  <section class="apply-section" id="apply">
+    <div class="apply-inner">
+      <div class="apply-text">
+        <span class="section-badge">4기 지원</span>
+        <h2>이번엔 <span class="gradient-text">진짜</span> 해봅시다</h2>
+        <p>혼자였을 땐 3일 컷이었다면,<br />이제 우리와 함께 끝까지 가보세요.</p>
+        <ul class="apply-checks">
+          <li>✔️ 00~07년생 서울권 대학생</li>
+          <li>✔️ 재학생 / 휴학생 / 취준생 모두 OK</li>
+          <li>✔️ 정치/종교/영업 목적 없음</li>
+          <li>✔️ 4~5명 소규모 조별 운영</li>
+        </ul>
+      </div>
+      <div class="apply-form-card">
+        <h3>📝 지원서</h3>
+        <div class="form-group">
+          <label>이름 / 닉네임</label>
+          <input type="text" id="applyName" class="form-input" placeholder="홍길동" />
+        </div>
+        <div class="form-group">
+          <label>학교 / 학과</label>
+          <input type="text" id="applySchool" class="form-input" placeholder="○○대학교 ○○학과" />
+        </div>
+        <div class="form-group">
+          <label>출생연도</label>
+          <select id="applyYear" class="form-select">
+            <option value="">선택</option>
+            <option>2000년생</option><option>2001년생</option><option>2002년생</option>
+            <option>2003년생</option><option>2004년생</option><option>2005년생</option>
+            <option>2006년생</option><option>2007년생</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>희망 반</label>
+          <select id="applyClass" class="form-select">
+            <option value="">선택</option>
+            <option>💻 컴활 &amp; IT 자격증반</option>
+            <option>🌍 토익 / 오픽 / 어학 준비반</option>
+            <option>📐 기사 &amp; 전공 자격증반</option>
+            <option>📖 시험기간 전공 집중 스터디</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>한마디 (선택)</label>
+          <textarea id="applyMsg" class="form-textarea short" placeholder="자격증 맛집에 지원하는 이유나 각오를 적어주세요!"></textarea>
+        </div>
+        <button class="btn-primary full-width" onclick="submitApply()" id="apply-submit-btn">지원 완료! 🚀</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>🍽️</span>
+        <span>자격증 맛집</span>
+      </div>
+      <p class="footer-desc">꾸준함을 시스템으로 만드는 대학생 자격증 스터디 동아리</p>
+      <p class="footer-disclaimer">본 동아리는 대학생 자치 모임이며 정치/종교/영업 목적과 무관합니다.</p>
+      <p class="footer-copy">© 2025 자격증 맛집 4기. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
