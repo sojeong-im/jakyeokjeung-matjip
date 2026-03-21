@@ -9,6 +9,29 @@ window.addEventListener('scroll', () => {
   updateActiveNavLink();
 });
 
+// ====== MEMBERS ======
+const membersData = [
+  { name: '민지', emoji: '🐰', color: '#c050ff', cert: '컴활 1급 합격!' },
+  { name: '준혁', emoji: '🐯', color: '#ff6b35', cert: '정처기 준비 중' },
+  { name: '서연', emoji: '🦊', color: '#00c896', cert: '토익 895점!' },
+  { name: '유나', emoji: '🐧', color: '#3b82f6', cert: '오픽 IH 합격!' },
+  { name: '재원', emoji: '🐻', color: '#f59e0b', cert: '전공 스터디 중' },
+  { name: '수진', emoji: '🌸', color: '#ec4899', cert: '컴활 2급 합격!' },
+  { name: '도현', emoji: '🦁', color: '#8b5cf6', cert: 'SQLD 준비 중' },
+  { name: '나은', emoji: '⭐', color: '#10b981', cert: '오픽 AL 목표!' },
+];
+
+function renderMembers() {
+  const row = document.getElementById('membersRow');
+  if (!row) return;
+  row.innerHTML = membersData.map(m => `
+    <div class="member-avatar" style="background:${m.color}22;border-color:${m.color}55">
+      ${m.emoji}
+      <span class="member-tooltip">${m.name} · ${m.cert}</span>
+    </div>
+  `).join('');
+}
+
 function updateActiveNavLink() {
   const sections = ['home','about','qna','exam','career','apply'];
   const scrollY = window.scrollY + 100;
@@ -726,29 +749,38 @@ function getJobDesc(job) {
 // ============================
 
 function submitApply() {
-  const name = document.getElementById('applyName').value.trim();
-  const school = document.getElementById('applySchool').value.trim();
-  const year = document.getElementById('applyYear').value;
-  const cls = document.getElementById('applyClass').value;
+  const name    = document.getElementById('applyName').value.trim();
+  const school  = document.getElementById('applySchool').value.trim();
+  const year    = document.getElementById('applyYear').value;
+  const cls     = document.getElementById('applyClass').value;
+  const phone   = document.getElementById('applyPhone').value.trim();
+  const station = document.getElementById('applyStation').value.trim();
 
-  if (!name) { showToast('⚠️ 이름을 입력해주세요!'); return; }
-  if (!school) { showToast('⚠️ 학교/학과를 입력해주세요!'); return; }
-  if (!year) { showToast('⚠️ 출생연도를 선택해주세요!'); return; }
-  if (!cls) { showToast('⚠️ 희망 반을 선택해주세요!'); return; }
+  if (!name)    { showToast('⚠️ 이름을 입력해주세요!'); return; }
+  if (!school)  { showToast('⚠️ 학교/학과를 입력해주세요!'); return; }
+  if (!year)    { showToast('⚠️ 출생연도를 선택해주세요!'); return; }
+  if (!cls)     { showToast('⚠️ 희망 반을 선택해주세요!'); return; }
+  if (!phone)   { showToast('⚠️ 연락처를 입력해주세요! (카카오 연락용)'); return; }
+  if (!station) { showToast('⚠️ 가까운 역을 입력해주세요!'); return; }
 
-  // Simulate submission
+  // 전화번호 간단 형식 체크
+  const phoneRegex = /^[0-9\-\s]{9,14}$/;
+  if (!phoneRegex.test(phone.replace(/[^0-9]/g,''))) {
+    showToast('⚠️ 연락처를 올바르게 입력해주세요 (예: 010-0000-0000)'); return;
+  }
+
   const btn = document.getElementById('apply-submit-btn');
-  btn.textContent = '제출 중...';
+  btn.textContent = '제출 중... ⏳';
   btn.disabled = true;
 
   setTimeout(() => {
     btn.textContent = '✅ 지원 완료!';
-    showToast(`🎉 ${name}님의 지원이 완료되었습니다! 곧 연락드릴게요 😊`, 4000);
-    document.getElementById('applyName').value = '';
-    document.getElementById('applySchool').value = '';
-    document.getElementById('applyYear').value = '';
-    document.getElementById('applyClass').value = '';
-    document.getElementById('applyMsg').value = '';
+    showToast(`🎉 ${name}님 지원 완료! 24시간 내로 카카오 연락드려요 😊`, 4500);
+    ['applyName','applySchool','applyYear','applyClass','applyPhone','applyStation','applyMsg']
+      .forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
     setTimeout(() => { btn.textContent = '지원 완료! 🚀'; btn.disabled = false; }, 3000);
   }, 1200);
 }
@@ -763,4 +795,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCertGrid();
   renderSelectedCerts();
   selectExam('컴활');
+  renderMembers();
 });
