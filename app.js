@@ -2,12 +2,6 @@
    자격증 맛집 — app.js
 =========================== */
 
-// ====== NAVBAR SCROLL ======
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-  updateActiveNavLink();
-});
 
 // ====== MEMBERS ======
 const membersData = [
@@ -30,31 +24,6 @@ function renderMembers() {
       <span class="member-tooltip">${m.name} · ${m.cert}</span>
     </div>
   `).join('');
-}
-
-function updateActiveNavLink() {
-  const sections = ['home','about','qna','exam','career','apply'];
-  const scrollY = window.scrollY + 100;
-  let current = 'home';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && el.offsetTop <= scrollY) current = id;
-  });
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.classList.toggle('active', link.dataset.section === current);
-  });
-}
-
-// ====== HAMBURGER MENU ======
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-
-function closeMobile() {
-  mobileMenu.classList.remove('open');
 }
 
 // ====== TOAST ======
