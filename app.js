@@ -2,6 +2,20 @@
    자격증 맛집 — app.js
 =========================== */
 
+// Firebase 설정 및 초기화
+const firebaseConfig = {
+  apiKey: "AIzaSyAG9FG8e27AZt2Q_z--H4cU03DnYHVjxLI",
+  authDomain: "jakyeokjeung-matjip.firebaseapp.com",
+  projectId: "jakyeokjeung-matjip",
+  storageBucket: "jakyeokjeung-matjip.firebasestorage.app",
+  messagingSenderId: "983617660339",
+  appId: "1:983617660339:web:80179e2350e410cc33d7c6"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.firestore();
 
 // ====== MEMBERS ======
 const membersData = [
@@ -756,7 +770,12 @@ function submitApply() {
   btn.textContent = '제출 중... ⏳';
   btn.disabled = true;
 
-  setTimeout(() => {
+  const msgText = document.getElementById('applyMsg') ? document.getElementById('applyMsg').value.trim() : '';
+
+  db.collection('applications').add({
+    name, school, year, cls, phone, station, msg: msgText,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(() => {
     btn.textContent = '✅ 지원 완료!';
     showToast(`🎉 ${name}님 지원 완료! 24시간 내로 카카오 연락드려요 😊`, 4500);
     ['applyName','applySchool','applyYear','applyClass','applyPhone','applyStation','applyMsg']
@@ -765,7 +784,12 @@ function submitApply() {
         if (el) el.value = '';
       });
     setTimeout(() => { btn.textContent = '지원 완료! 🚀'; btn.disabled = false; }, 3000);
-  }, 1200);
+  }).catch((error) => {
+    console.error("Error adding document: ", error);
+    showToast('⚠️ 지원 중 오류가 발생했습니다. 다시 시도해 주세요.');
+    btn.textContent = '지원 완료! 🚀';
+    btn.disabled = false;
+  });
 }
 
 // ============================
