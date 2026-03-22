@@ -168,6 +168,17 @@ function toggleAnswer(id) {
   renderQnAList(currentQnAFilter);
 }
 
+const MEMBER_CODE = '1234';
+
+function verifyMemberCode() {
+  const code = prompt('동아리원 전용 기능입니다.\\n회원코드를 입력해주세요: (기본 회원코드: 1234)');
+  if (code !== MEMBER_CODE) {
+    showToast('⚠️ 회원코드가 일치하지 않습니다.');
+    return false;
+  }
+  return true;
+}
+
 let currentQnAFilter = 'all';
 
 function filterQnA(cat) {
@@ -180,6 +191,7 @@ function filterQnA(cat) {
 
 function likeQnA(e, id) {
   e.stopPropagation();
+  if (!verifyMemberCode()) return;
   const q = qnaData.find(q => q.id === id);
   if (!q) return;
   q._liked = !q._liked;
@@ -193,6 +205,8 @@ function handleFileSelect(input) {
 }
 
 function submitQnA() {
+  if (!verifyMemberCode()) return;
+  
   const cat = document.getElementById('qnaCategory').value;
   const title = document.getElementById('qnaTitle').value.trim();
   const content = document.getElementById('qnaContent').value.trim();
