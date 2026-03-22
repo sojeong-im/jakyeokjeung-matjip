@@ -185,7 +185,7 @@ function toggleAnswer(id) {
 const MEMBER_CODE = '1234';
 
 function verifyMemberCode() {
-  const code = prompt('동아리원 전용 기능입니다.\\n회원코드를 입력해주세요: (기본 회원코드: 1234)');
+  const code = prompt('동아리원 전용 기능입니다.\\n회원코드를 입력해주세요:');
   if (code !== MEMBER_CODE) {
     showToast('⚠️ 회원코드가 일치하지 않습니다.');
     return false;
