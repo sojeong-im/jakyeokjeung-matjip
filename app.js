@@ -743,7 +743,7 @@ function submitApply() {
   if (!school)  { showToast('⚠️ 학교/학과를 입력해주세요!'); return; }
   if (!year)    { showToast('⚠️ 출생연도를 선택해주세요!'); return; }
   if (!cls)     { showToast('⚠️ 희망 반을 선택해주세요!'); return; }
-  if (!phone)   { showToast('⚠️ 연락처를 입력해주세요! (카카오 연락용)'); return; }
+  if (!phone)   { showToast('⚠️ 연락처를 입력해주세요!'); return; }
   if (!station) { showToast('⚠️ 가까운 역을 입력해주세요!'); return; }
 
   // 전화번호 간단 형식 체크
