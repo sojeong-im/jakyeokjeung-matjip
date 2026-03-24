@@ -94,6 +94,35 @@
       text-align: center;
       letter-spacing: 2px;
     }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .admin-container {
+        margin: 30px auto;
+        padding: 0 15px;
+      }
+      .admin-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+      .admin-title {
+        font-size: 1.5rem;
+      }
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .admin-table th, .admin-table td {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+      .login-box {
+        padding: 30px 20px;
+        max-width: 90%;
+      }
+    }
   </style>
 </head>
 <body>
