@@ -64,6 +64,13 @@
       color: #fff;
     }
     
+    .message-cell {
+      max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
     /* Login Overlay */
     #loginOverlay {
       position: fixed;
@@ -98,26 +105,75 @@
     /* Mobile Responsive Styles */
     @media (max-width: 768px) {
       .admin-container {
-        margin: 30px auto;
+        margin: 20px auto;
         padding: 0 15px;
       }
       .admin-header {
         flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
+        gap: 12px;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 24px;
       }
       .admin-title {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
       }
+      
+      /* Table to Cards */
       .table-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        background: transparent;
+        border: none;
       }
-      .admin-table th, .admin-table td {
-        padding: 12px 15px;
+      .admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr {
+        display: block;
+      }
+      .admin-table thead {
+        display: none; /* Hide headers on mobile */
+      }
+      .admin-table tr {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        margin-bottom: 16px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      .admin-table td {
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
         font-size: 0.85rem;
-        white-space: nowrap;
+        white-space: normal;
+        text-align: right;
       }
+      .admin-table td:last-child {
+        border-bottom: none;
+        justify-content: center;
+        padding-top: 15px;
+      }
+      .admin-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--primary-light);
+        text-align: left;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+      .delete-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .message-cell {
+        max-width: none;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+      }
+      
       .login-box {
         padding: 30px 20px;
         max-width: 90%;

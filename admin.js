@@ -77,17 +77,17 @@ function fetchApplicants() {
 
       tbody.innerHTML = docs.map(app => `
         <tr id="row-${app.id}">
-          <td style="color:var(--text-muted); font-size:0.8rem;">
+          <td data-label="지원 일시" style="color:var(--text-muted); font-size:0.8rem;">
             ${formatDate(app.timestamp)}
           </td>
-          <td style="font-weight:700;">${safeString(app.name)}</td>
-          <td>${safeString(app.school)}</td>
-          <td>${safeString(app.year)}</td>
-          <td><span style="background:rgba(192,80,255,0.1);color:var(--primary-light);padding:3px 8px;border-radius:20px;font-size:0.75rem;font-weight:700;">${safeString(app.cls)}</span></td>
-          <td>${safeString(app.phone)}</td>
-          <td>${safeString(app.station)}</td>
-          <td style="max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${safeString(app.msg)}</td>
-          <td>
+          <td data-label="이름" style="font-weight:700;">${safeString(app.name)}</td>
+          <td data-label="대학 / 학과">${safeString(app.school)}</td>
+          <td data-label="출생연도">${safeString(app.year)}</td>
+          <td data-label="희망 반"><span style="background:rgba(192,80,255,0.1);color:var(--primary-light);padding:3px 8px;border-radius:20px;font-size:0.75rem;font-weight:700;">${safeString(app.cls)}</span></td>
+          <td data-label="연락처">${safeString(app.phone)}</td>
+          <td data-label="지하철역">${safeString(app.station)}</td>
+          <td data-label="한마디" class="message-cell">${safeString(app.msg)}</td>
+          <td data-label="관리">
             <button class="delete-btn" onclick="deleteApplicant('${app.id}', '${safeString(app.name)}')">삭제 🗑</button>
           </td>
         </tr>
